@@ -1,22 +1,27 @@
 
 body {
-  background: #fffaf4;
+  background: #F0F8EA;
   color: #333;
   font-family: 'Apple SD Gothic Neo', sans-serif;
   padding: 2em;
   line-height: 1.7;
+  font-size: 18px;
+  text-align: center;
 }
 h1, h2 {
-  color: #f3722c;
+  color: #fd9bb4;
+  font-size: 28px;
 }
 a {
   display: inline-block;
   margin: 1em 0;
   padding: 0.6em 1em;
-  background: #f3722c;
-  color: white;
+  background: #FFF585;
+  color: #333;
   border-radius: 10px;
   text-decoration: none;
+  font-size: 18px;
+  max-width: 300px;
 }
 ul {
   list-style: none;
