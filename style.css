@@ -1,0 +1,27 @@
+
+body {
+  background: #fffaf4;
+  color: #333;
+  font-family: 'Apple SD Gothic Neo', sans-serif;
+  padding: 2em;
+  line-height: 1.7;
+}
+h1, h2 {
+  color: #f3722c;
+}
+a {
+  display: inline-block;
+  margin: 1em 0;
+  padding: 0.6em 1em;
+  background: #f3722c;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  margin: 1em 0;
+}
