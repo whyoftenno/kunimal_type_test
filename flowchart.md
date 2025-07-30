@@ -11,8 +11,8 @@ graph TD
   Q3B -->|S| R3["왈왈(ESP)"]
   Q3B -->|N| R4["낑낑(ENJ)"]
 
-  Q2B -->|J| Q3C["Q3. N vs S"]
-  Q2B -->|P| Q3D["Q3. N vs S"]
+  Q2B -->|J| Q3C["Q3. S(더러워) vs N(궁금함)"]
+  Q2B -->|P| Q3D["Q3. S(더러워) vs N(궁금함)"]
 
   Q3C -->|S| R5["냥냥(ISJ)"]
   Q3C -->|N| R6["오징어사와(INJ)"]
