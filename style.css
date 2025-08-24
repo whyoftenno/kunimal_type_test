@@ -15,7 +15,7 @@ body {
   padding: 2rem;
 }
 
-h1, h2 { margin: 0 0 .8rem; font-weight: 700; color:#111; }
+h1, h2 { margin: 0 0 .8rem; font-size: 24px; color:#111; }
 p { margin: 0 0 1.2rem; }
 ul { list-style:none; padding:0; margin:0; }
 
@@ -40,9 +40,10 @@ ul { list-style:none; padding:0; margin:0; }
 }
 
 /* ===== Buttons (a, button 공용) ===== */
-.btn {
-  display:inline-block;
-  padding: .7em 1.1em;
+a.btn {
+  display: block;
+  margin: 0.8em auto;
+  padding: .7em 1.2em;
   border: 1.5px solid #111;
   border-radius: 12px;
   background:#111;
@@ -51,10 +52,10 @@ ul { list-style:none; padding:0; margin:0; }
   font-size: 1rem;
   transition: background .2s ease, color .2s ease, transform .12s ease;
   cursor: pointer;
+  max-width: 680px;
 }
-.btn:hover { background:#fff; color:#111; transform: translateY(-1px); }
-.btn:active { transform: translateY(0); }
-.btn:focus-visible { outline: 3px solid #8ab4ff; outline-offset: 2px; }
+a.btn:hover { background:#fff; color:#111; transform: translateY(-1px); }
+a.btn:active { transform: translateY(0); }
 
 /* 링크형 버튼(테두리만, 배경 없음) */
 .btn-ghost {
