@@ -1,13 +1,25 @@
-/* ===== Reset-ish ===== */
 * { box-sizing: border-box; }
 html, body { margin:0; padding:0; }
-img { max-width:100%; height:auto; display:block; }
-
-:root {
-  --ink: #303030;   /* 전체 공용 텍스트/버튼/테두리 색 */
+img { 
+  max-width: 80%; 
+  height:auto; 
+  display:block; 
+  margin: 1em auto;
+  image-rendering: pixelated;
 }
 
-/* ===== Base ===== */
+img.original {
+  max-width: none;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 1em auto;
+}
+
+:root {
+  --ink: #303030; 
+}
+
 body {
   background:#fff;
   color: var(--ink);
@@ -23,11 +35,9 @@ h1, h2 { margin: 0 0 .8rem; font-size: 24px; color: var(--ink); }
 p { margin: 0 0 1.2rem; }
 ul { list-style:none; padding:0; margin:0; }
 
-/* ===== Layout helpers ===== */
 .container { max-width: 720px; margin: 0 auto; text-align: left; }
 .center { text-align: center; }
 
-/* ===== Image block ===== */
 .figure {
   margin: 1rem auto 1.25rem;
   max-width: 640px;           /* 이미지 폭 제한 */
@@ -62,7 +72,6 @@ a.btn {
 a.btn:hover { background:#fff; color: var(--ink); transform: translateY(-1px); }
 a.btn:active { transform: translateY(0); }
 
-/* 링크형 버튼(테두리만, 배경 없음) */
 .btn-ghost {
   background:#fff; color: var(--ink);
 }
@@ -70,19 +79,16 @@ a.btn:active { transform: translateY(0); }
   background:#f6f6f6;
 }
 
-/* 텍스트 링크를 깔끔하게 */
 .link {
   color: var(--ink); text-decoration:none; border-bottom: 1px solid #11122a33;
 }
 .link:hover { border-bottom-color: var(--ink); }
 
-/* ===== Responsive ===== */
 @media (max-width: 600px){
   body { font-size:16px; padding: 1.25rem; }
   h1 { font-size: 1.35rem; }
 }
 
-/* 모션 최소화 선호 존중 */
 @media (prefers-reduced-motion: reduce){
   a.btn { transition: none; }
 }
