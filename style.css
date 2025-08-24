@@ -10,7 +10,7 @@ img {
 }
 
 img.original {
-  max-width: none;
+  max-width: 90%;
   width: auto;
   height: auto;
   display: block;
