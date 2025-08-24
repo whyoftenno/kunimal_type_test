@@ -32,6 +32,13 @@ body {
   padding: 2rem;
 }
 
+.note {
+  font-size: 0.8rem;
+  color: #888;
+  font-style: italic;
+  line-height: 1.4;
+}
+
 h1, h2 { margin: 0 0 .8rem; font-size: 24px; color: var(--ink); }
 p { margin: 0 0 1.2rem; }
 ul { list-style:none; padding:0; margin:0; }
