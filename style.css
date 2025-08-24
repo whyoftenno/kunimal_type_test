@@ -5,6 +5,16 @@
   --bg: #C2E2F2;      /* 파스텔 하늘 */
   --ink: #033D99;     /* 네이비 포인트 */
   --paper: #ffffff;   /* 카드/콘텐츠 배경 */
+  --dot-size: 12px;   /* 도트 지름 (크게 하고 싶으면 14~18px) */
+  --dot-gap:  18px;   /* 도트 사이 간격 (더 넓히려면 20~28px) */
+
+  /* 계산값: 삼각 격자(벌집) 배열 간격 */
+  --dot-step-x: calc(var(--dot-size) + var(--dot-gap));
+  --dot-step-y: calc((var(--dot-size) + var(--dot-gap)) * 0.866); /* √3/2 ≈ 0.866 */
+
+  --dot-main:  rgba(255,255,255,0.9); /* 기본: 흰 도트 */
+  --dot-pink:  #F26B9C;                /* 포인트 핑크 */
+  --dot-green: #22C55E;                /* 포인트 그린 */
 }
 
 * { box-sizing: border-box; }
@@ -77,10 +87,35 @@ img { max-width: 90%; height: auto; border-radius: 12px; margin: 1em 0; }
    Retro 한 스푼 (원할 때만 적용)
    body나 감싸는 div에 class로 붙여서 사용
 ================================ */
-.bg-dots {
-  background:
-    radial-gradient(#ffffff 1px, transparent 1px) 0 0 / 12px 12px,
-    var(--bg);
+/* 삼각(벌집) 배열 도트 배경 */
+.bg-dots{
+  background-color: var(--bg);
+  background-image:
+    /* ① 기본 흰 도트 레이어 A (격자 원점) */
+    radial-gradient(circle, var(--dot-main) 0 calc(var(--dot-size)/2), transparent calc(var(--dot-size)/2 + 0.5px)),
+    /* ② 기본 흰 도트 레이어 B (반 셀 오프셋) */
+    radial-gradient(circle, var(--dot-main) 0 calc(var(--dot-size)/2), transparent calc(var(--dot-size)/2 + 0.5px)),
+
+    /* ③ 핑크 포인트(성긴 밀도, 약간 다른 오프셋) */
+    radial-gradient(circle, color-mix(in srgb, var(--dot-pink) 85%, transparent) 0 calc(var(--dot-size)/2),
+                                  transparent calc(var(--dot-size)/2 + 0.5px)),
+    /* ④ 그린 포인트(성긴 밀도, 또 다른 오프셋) */
+    radial-gradient(circle, color-mix(in srgb, var(--dot-green) 85%, transparent) 0 calc(var(--dot-size)/2),
+                                  transparent calc(var(--dot-size)/2 + 0.5px));
+  background-size:
+    var(--dot-step-x) var(--dot-step-y),
+    var(--dot-step-x) var(--dot-step-y),
+    /* 포인트는 더 성기게(2배 간격) */
+    calc(var(--dot-step-x) * 2) calc(var(--dot-step-y) * 2),
+    calc(var(--dot-step-x) * 2) calc(var(--dot-step-y) * 2);
+  background-position:
+    /* A/B 두 레이어를 반 셀만큼 어긋나게 → 삼각(벌집) 패턴 */
+    0 0,
+    calc(var(--dot-step-x)/2) calc(var(--dot-step-y)/2),
+
+    /* 포인트 색은 서로 다른 위치에 듬성듬성 */
+    calc(var(--dot-step-x) * 0.25) calc(var(--dot-step-y) * 0.75),
+    calc(var(--dot-step-x) * 1.25) calc(var(--dot-step-y) * 1.5);
 }
 
 .bg-stripes {
