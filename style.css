@@ -1,7 +1,17 @@
+/* ================================
+   Base (깔끔/심플 기본 세팅)
+================================ */
+:root{
+  --bg: #C2E2F2;      /* 파스텔 하늘 */
+  --ink: #033D99;     /* 네이비 포인트 */
+  --paper: #ffffff;   /* 카드/콘텐츠 배경 */
+}
+
+* { box-sizing: border-box; }
 
 body {
-  background: #ffffff;
-  color: #333;
+  background: var(--bg);
+  color: var(--ink);
   font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont,
                "Segoe UI", Roboto, "Malgun Gothic", sans-serif;
   padding: 2em;
@@ -9,25 +19,86 @@ body {
   font-size: 18px;
   text-align: center;
 }
+
 h1, h2 {
-  color: #333;
+  color: var(--ink);
   font-size: 28px;
+  margin: 0 0 0.8em;
 }
+
+p { margin: 0 0 1.2em; }
+
+/* 링크(버튼처럼) — 살짝 투박한 레트로 그림자 */
 a {
   display: inline-block;
   margin: 1em 0;
-  padding: 0.6em 1em;
-  background: #333;
+  padding: 0.7em 1.2em;
+  background: var(--ink);
   color: #ffffff;
-  border-radius: 10px;
+  border-radius: 12px;
   text-decoration: none;
   font-size: 18px;
-  max-width: 300px;
+  max-width: 320px;
+  box-shadow: 3px 3px 0 #021f4d; /* 투박한 느낌 유지 */
+  transition: transform 0.15s ease, background 0.2s ease, opacity .2s ease;
 }
-ul {
-  list-style: none;
-  padding: 0;
+a:hover { background:#021f4d; transform: translate(-2px,-2px); }
+a:active { transform: translate(0,0); opacity:.9; }
+
+ul { list-style: none; padding: 0; }
+li { margin: 1em 0; }
+
+/* 이미지는 자동 리사이즈 */
+img { max-width: 90%; height: auto; border-radius: 12px; margin: 1em 0; }
+
+/* 콘텐츠 박스(선택) — 필요할 때 감싸서 사용 */
+.card {
+  max-width: 680px;
+  margin: 1.2em auto;
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: 18px;
+  padding: 1.2em 1.4em;
+  box-shadow: 4px 4px 0 rgba(3,61,153,.18);
 }
-li {
-  margin: 1em 0;
+
+/* 작은 스탬프 라벨(선택) */
+.stamp {
+  display:inline-block;
+  border:2px dashed var(--ink);
+  border-radius:12px;
+  padding:.25em .6em;
+  font-size:.9em;
+  opacity:.85;
+  margin-bottom: .5em;
+}
+
+/* ================================
+   Retro 한 스푼 (원할 때만 적용)
+   body나 감싸는 div에 class로 붙여서 사용
+================================ */
+.bg-dots {
+  background:
+    radial-gradient(#ffffff 1px, transparent 1px) 0 0 / 12px 12px,
+    var(--bg);
+}
+
+.bg-stripes {
+  background:
+    repeating-linear-gradient(45deg,
+      rgba(255,255,255,0.55) 0px,
+      rgba(255,255,255,0.55) 8px,
+      transparent 8px,
+      transparent 16px),
+    var(--bg);
+}
+
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 600px) {
+  body { font-size: 16px; padding: 1.2em; }
+  h1 { font-size: 24px; }
+  a  { font-size: 16px; padding: 0.6em 1em; max-width: 100%; }
+  .card { padding: 1em; }
 }
